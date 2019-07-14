@@ -2,6 +2,7 @@ var express = require('express')
 var hbs = require('hbs')
 var app = express() 
 var fs = require('fs')
+const port = process.env.PORT || 3000;
 
 hbs.registerPartials(__dirname + '/views/partials')
 app.set('view engine','hbs')
@@ -19,7 +20,7 @@ app.use((req,res,next)=>{
   
     fs.appendFileSync('server.log',log+'\n')
     console.log(log)
-next();
+    next();
 
 })
 
@@ -73,6 +74,6 @@ app.get("/error",(req,res)=>
 
 })
 
-app.listen(3000,()=>{
-    console.log("server is up & running...")
+app.listen(port,()=>{
+    console.log("server is up & running on ..",`${port}`)
 });
