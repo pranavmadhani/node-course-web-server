@@ -74,6 +74,21 @@ app.get("/error",(req,res)=>
 
 })
 
+app.get("/projects",(req,res)=>
+{
+
+   res.render('projects.hbs',{
+
+    pageTitle:'projects'
+
+   })
+
+})
+
+
+
+
+
 app.listen(port,()=>{
     console.log("server is up & running on ..",`${port}`)
 });
